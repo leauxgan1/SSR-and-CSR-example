@@ -2,6 +2,7 @@ const GET_URL = window.location + "getTodo";
 const POST_URL = window.location + "submitTodo";
 const REMOVE_URL = window.location + "removeTodo";
 
+const todoHolder = document.querySelector("#todoContainer");
 const todoTemplate = document.querySelector("#todoTemplate");
 
 async function fetchTodos() {
@@ -54,7 +55,6 @@ function createTodo(template, data) {
 }
 
 async function setup() {
-	const todoHolder = document.querySelector("#todoContainer");
 	const todos = await fetchTodos();
 	createAllTodos(todoHolder,todoTemplate,todos);
 }
