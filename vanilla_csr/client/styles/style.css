@@ -1,0 +1,131 @@
+
+* {
+	font-family: 'Courier New', Courier, monospace;
+}
+body {
+	overflow: hidden;
+}
+
+h1 {
+	font-size: 1rem;
+	margin: 0;
+}
+body {
+	background:#442234;
+	margin: 0 0 0 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+header {
+	display: flex;
+	background: #eee;
+	flex-direction: row;
+	justify-content: center;
+	gap: 5rem;
+	width: 100%;
+	box-shadow: 0px 6px 100px #000000;
+}
+header > a {
+	text-align: center;
+	flex-grow: 1;
+	text-decoration:none;
+	background-color: #eee111;
+	border: 1px dotted black;
+	max-width: 4em;
+	max-height: 2em;
+	color: black;
+	padding: 1em;	
+	cursor:pointer;
+	transition: background-color 0.2s,text-shadow 0.2s, color 0.2s;
+	/*margin-inline: 3rem;*/
+	text-shadow: 0px 0px;
+}
+
+header > a:hover {
+	background-color: #000;
+	text-shadow: 0px 0px 5px white;
+	color: #EEEEEE;
+}
+
+main {
+	display:flex;
+	flex-direction:row;
+	overflow-y: scroll;
+}
+
+#todos {
+	background-color: rgba(0,0,0,0);
+	color: #BBBBBB;
+	width: 50vw;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+form {
+	background: #333333;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50vw;
+	height: calc(100vh - 4rem);
+}
+
+form > * {
+	margin-inline: 3rem;
+	margin-block: 1rem;
+}
+/*#todo {*/
+/**/
+/*}*/
+
+input,
+textarea {
+	resize:none;
+	field-sizing:content;
+}
+ul {
+	padding-inline: 1rem;
+	max-height: 90vh;
+	overflow: auto;
+}
+
+li > button {
+	max-width: 4rem;
+	max-height: 100%;
+	padding-inline: 1rem;
+	text-align: center;
+	font-size: 2rem;
+}
+
+li {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-block:1rem;
+	outline: 1px solid white;
+}
+
+li > #todoContainer {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 4;
+	margin-inline: 1rem;
+	margin-top: 1rem;
+	max-height: 5rem;
+
+}
+#todoContainer > h1 {
+	text-shadow: 0px 0px 10px white;
+	background: none;
+}
+#todoContainer > p {
+	text-wrap: wrap;
+	overflow-y:scroll;
+	word-wrap: break-word;
+	max-width: 40vw;
+	scrollbar-width: none;
+}
+
+

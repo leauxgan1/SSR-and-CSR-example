@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Vanilla JS CSR Example</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
+		<!--<link rel="icon" href="favicon.png">-->
+		<meta name="theme-color" content="#2ec27e">
+		<script defer src="main.js"> </script>
+	</head>
+	<!--Templates -->
+	<template id="todoTemplate">
+		<li>
+			<div id="todoContainer">
+				<h1> I am a title </h1>
+				<p> I am the details... </p>
+			</div>
+			<button> X </button>
+		<li>
+	</template>
+	<!-- -->
+	<body>
+		<header>
+				<a>
+					Home
+				</a>
+				<a>
+					About
+				</a>
+				<a>
+					Signup
+				</a>
+		</header>
+		<main> 
+			<section id="todos"> 
+				<ul id="todoContainer">
+				</ul>
+			</section>
+			<section > 
+				<form id="todoForm" onsubmit="return false">
+					<textarea name="todoTitle" placeholder="Enter Todo Title..." required></textarea>
+					<textarea name="todoDetails" rows="3" placeholder="Enter Todo Details..." required></textarea>
+					<input type="submit" value="Submit Todo" id="submitTodoButton"></input> 
+				</form>
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Htmx Todo List</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="description" content="An example of an htmx-based todo app" />
+		<script defer src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+		<link href="./style.css" rel="stylesheet"> <!-- tailwind.min.css -->
+	</head>
+	<body class="flex flex-row bg-gray-200 font-mono" hx-boost="true">
+		<div class="bg-blue-100 w-6/12 h-screen">
+			<ul 
+				id="todolist"
+				class="list-none space-y-4"
+				hx-get="/getTodo"
+				hx-trigger="load "
+				hx-swap="innerHTML"
+			>
+			</ul>
+		</div>
+
+		<form 
+			class="flex flex-col bg-black w-6/12 h-screen justify-center"
+		>
+			<textarea 
+				 name="titleTextArea"
+				 class="m-2 rounded-sm p-1" 
+				 style="resize:none" 
+				 rows="1" 
+				 placeholder="Enter your todo title..."
+			></textarea>
+			<textarea 
+				 name="detailTextArea"
+				 class="m-2 rounded-sm p-1" 
+				 style="resize:none" 
+				 rows="5" 
+				 placeholder="Enter your todo details..."
+			></textarea>
+			<button 
+				class="bg-blue-200 rounded border-solid border-3 border-white m-2"
+				hx-post="/submitTodo" 
+				hx-trigger="click" 
+				hx-target="#todolist"
+				hx-swap="innerHTML"
+				hx-include="[name='titleTextArea'], [name='detailTextArea']"
+			>
+				Submit todo
+			</button>
+			<!--<button -->
+			<!--	class="bg-blue-200 rounded border-solid border-3 border-white m-1"-->
+			<!--	hx-post="removeTodo" -->
+			<!--	hx-trigger="click" -->
+			<!--	hx-target="#todolist"-->
+			<!--	hx-swap="innerHTML"-->
+			<!--	Remove top note-->
+			<!--</button>-->
+    </form>
+		<!--</div>-->
+	</body>
+</html>
