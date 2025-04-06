@@ -20,7 +20,11 @@ For example, an HTTP POST request could look like this:
  - The server may then either A) render the entire list of todos anew or B) render the single todo as an html partial
  - The server then sends back this information, allowing the html partial to be added to the page to reflect the changed state on the server
 ### SSR Conclusion
-TODO
+Before making conclusions on the properties of an SSR architecture, the implementation of this pattern should be acknowledged.
+More specifically, the frontend library HTMX was used to handle the necessary AJAX calls to send requests to the server and insert their responses into the document as html.
+The use of this library significantly reduced the overall amount of code necessary to to implement the main features of the app.
+However, the total amount of code, including the handler code from HTMX, is still reduced in comparison to the CSR approach. 
+This is due to the fact that 
 ## Client Side Rendering
 This method of rendering html dynamically involves instead only rendering on the client side using the web's premier scripting language javascript.
 This allows the server to only send the data required to properly render on the client rather than the entirety of the rendered data.
