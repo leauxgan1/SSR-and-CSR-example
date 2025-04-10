@@ -2,10 +2,13 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 	"log"
 	"net/http"
 	"os"
+	"slices"
+	"strconv"
+
+	"golang.org/x/exp/slices"
 )
 
 const (
@@ -17,10 +20,6 @@ type TodoNote struct {
 	ID int32 `json:"todoID"`
 	Title string `json:"todoTitle"`
 	Details string `json:"todoDetails"`
-}
-
-type RemovalRequest struct {
-	ID string `json:"todoID"`
 }
 
 var store []TodoNote 
@@ -114,10 +113,9 @@ func handleRemoveTodo(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	for i := 0; i < len(store); i++ {
 		if store[i].ID == int32(targetID) {
-			store = removeAtIndex(store,i)
+			store = slices.Delete(store,i,i+1)
 		}
 	}
-	log.Println(store)
 	sendTodoList(w)
 }
 
@@ -172,6 +170,3 @@ func generateID() int32 {
 	return id - 1
 }
 
-func removeAtIndex[T comparable](slice []T, index int) []T {
-	return append(slice[:index], slice[index+1:]...)
-}

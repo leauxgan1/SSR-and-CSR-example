@@ -29,14 +29,6 @@ func main() {
 	http.HandleFunc("/submitTodo",handleSubmitTodo)
 	http.HandleFunc("/removeTodo",handleRemoveTodo)
 
-	store = append(store, 
-		TodoNote {
-			ID: generateID(),
-			Title: "An example Todo", 
-			Details: "Go read a book or something...",
-		}, 
-	)
-
 	addFileServer()
 	log.Printf("Starting server on localhost:%d",PORT);
 	if err := http.ListenAndServe(fmt.Sprintf(":%d",PORT),nil); err != nil {
